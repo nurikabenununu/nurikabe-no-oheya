@@ -1,0 +1,129 @@
+/* 見出しのスタイル */
+.site-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #D3D3D3;
+    margin: 0;
+    text-align: center;
+}
+
+.section-heading {
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.section-heading::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #D4E9E2;
+    border-radius: 2px;
+    margin: 0 auto;
+}
+
+.sub-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2em;
+    text-align: center; /* H3専用のクラスに中央揃えを適用 */
+}
+
+/* ナビゲーションのスタイル */
+.site-nav {
+    display: block; /* PC向け */
+}
+
+.site-nav .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background-color: #F5D2D8;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ボタンのスタイル */
+.btn {
+    /* ... 前回の提案のスタイルを適用 ... */
+}
+.btn-primary {
+    /* ... 前回の提案のスタイルを適用 ... */
+}
+
+/* 画像とアニメーションのスタイル */
+.hero-image img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.nurikabe-bounce {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+/* モバイル向けハンバーガーメニュー */
+.hamburger-btn {
+    display: none; /* PCでは非表示 */
+}
+
+@media (max-width: 768px) {
+    .site-nav {
+        display: none;
+    }
+
+    .site-header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .hamburger-btn {
+        display: block;
+        /* ... ハンバーガーボタンのスタイル ... */
+    }
+    /* ハンバーガーメニューがアクティブになった際のナビゲーション表示スタイル */
+}
+
+/* プロフィールリストのスタイル */
+.profile-list {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 40px auto;
+}
+.profile-list li {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    border-bottom: 1px solid #EEEEEE;
+}
+.profile-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+/* components.css に追記 */
+.center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
