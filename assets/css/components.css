@@ -1,0 +1,279 @@
+/* 見出しのスタイル */
+.site-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #D3D3D3;
+    margin: 0;
+    text-align: center;
+}
+
+.section-heading {
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.section-heading::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #D4E9E2;
+    border-radius: 2px;
+    margin: 0 auto;
+}
+
+.sub-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2em;
+    text-align: center; /* H3専用のクラスに中央揃えを適用 */
+}
+
+/* ナビゲーションのスタイル */
+.site-nav {
+    display: block; /* PC向け */
+}
+
+.site-nav .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background-color: #F5D2D8;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ボタンのスタイル */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 999px; /* 角を大きく丸めて、ぷにぷに感を強調 */
+    font-size: 1rem;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #F5D2D8; /* ベビーピンク */
+    color: #FFF;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ボタンを中央に配置するスタイル */
+#game-start-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    padding: 20px 40px; /* ボタンを大きく見せる */
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+/* A-FrameのデフォルトUIを非表示にする */
+.a-enter-vr,
+.a-exit-vr,
+.a-enter-vr-button,
+.a-vr-camera-button,
+.a-ar-camera-button {
+    display: none !important;
+}
+
+/* 画像とアニメーションのスタイル */
+.hero-image img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.nurikabe-bounce {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+/* モバイル向けハンバーガーメニュー */
+.hamburger-btn {
+    display: block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    z-index: 100;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.hamburger-icon {
+    display: block;
+    height: 3px;
+    width: 25px;
+    background-color: #555555;
+    position: relative;
+    transition: 0.3s ease-in-out;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    background-color: #555555;
+    position: absolute;
+    transition: 0.3s ease-in-out;
+}
+
+.hamburger-icon::before {
+    bottom: 8px;
+}
+
+.hamburger-icon::after {
+    top: 8px;
+}
+
+/* ハンバーガーメニューがアクティブになった際のナビゲーション表示スタイル */
+.hamburger-btn.is-active .hamburger-icon {
+    background-color: rgba(255, 255, 255, 0); /* 中央の棒を透明に */
+}
+
+.hamburger-btn.is-active .hamburger-icon::before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+
+.hamburger-btn.is-active .hamburger-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.site-nav {
+    /* ... 既存のスタイル ... */
+    position: fixed;
+    top: 0;
+    left: 100%; /* 初期状態は画面外 */
+    width: 100%;
+    height: 100vh;
+    background-color: #FDFCF7;
+    transition: all 0.5s ease;
+    padding-top: 60px;
+    box-sizing: border-box;
+    display: block; /* モバイルでは常にブロック要素 */
+}
+
+.site-nav.is-active {
+    left: 0; /* メニュー表示 */
+}
+
+.site-nav .nav-list {
+    flex-direction: column;
+    text-align: center;
+}
+
+/* PC版のナビゲーションとハンバーガーメニューのスタイル */
+@media (min-width: 769px) {
+    /* PC版のナビゲーションを表示 */
+    .site-nav {
+        display: block !important; /* モバイル版のdisplay: none;を上書き */
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+        padding-top: 0;
+        box-sizing: content-box;
+    }
+
+    /* PC版ではハンバーガーボタンを非表示にする */
+    .hamburger-btn {
+        display: none;
+    }
+    
+    /* PC版のナビゲーションリストのスタイルを元に戻す */
+    .site-nav .nav-list {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+/* モバイル版のナビゲーションとハンバーガーメニューのスタイル */
+@media (max-width: 768px) {
+    /* モバイル版のハンバーガーボタンを表示 */
+    .hamburger-btn {
+        display: block;
+        /* ...その他のスタイル... */
+    }
+
+    /* モバイル版のナビゲーションを初期状態では非表示 */
+    .site-nav {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100vh;
+        background-color: #FDFCF7;
+        transition: all 0.5s ease;
+        padding-top: 60px;
+        box-sizing: border-box;
+    }
+    
+    .site-nav.is-active {
+        left: 0;
+    }
+
+    .site-nav .nav-list {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* プロフィールリストのスタイル */
+.profile-list {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 40px auto;
+}
+.profile-list li {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    border-bottom: 1px solid #EEEEEE;
+}
+.profile-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+/* components.css に追記 */
+.center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
