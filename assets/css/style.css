@@ -1,0 +1,100 @@
+/* style.css */
+
+/*----------------------------------------
+  1. Base & Layout
+  - サイト全体の基本設定
+  - 全体共通のレイアウト
+----------------------------------------*/
+
+body {
+    font-family: 'M PLUS Rounded 1c', 'Nunito', sans-serif;
+    color: #555555;
+    background-color: #FDFCF7;
+    margin: 0;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+a {
+    color: inherit; /* 親要素の色を継承 */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #F5D2D8;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+main {
+    padding-top: 10px; /* 上部の余白を小さくする */
+    padding-bottom: 40px; /* 下部の余白は維持 */
+}
+
+.content-section {
+    padding: 40px 0;
+    margin-bottom: 60px;
+}
+
+/* 本文テキストと見出しを中央に配置 */
+p, h3 {
+    text-align: center;
+}
+
+/* 画像を中央に配置（一部レイアウトを維持） */
+main img:not(.story-section img) {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*----------------------------------------
+  2. Animations & Utilities
+  - 全体共通のアニメーション
+  - ユーティリティクラス
+----------------------------------------*/
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInAnimation 1s ease-out forwards;
+}
+
+.fade-in-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeInAnimation {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.nurikabe-bounce {
+    animation: bounce 1s ease-in-out infinite;
+}
+
