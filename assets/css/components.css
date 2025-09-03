@@ -186,6 +186,12 @@
     .hamburger-btn {
         display: none;
     }
+  
+    /* モバイル版ゲーム画面の調整 */
+    .aframe-container {
+        height: 350px; /* モバイルでの表示に適切な高さに調整 */
+        max-width: 95%; /* 画面幅に合わせて調整 */
+    }
 }
 
 
@@ -326,4 +332,5 @@
     text-align: center;
     padding: 40px 20px 20px;
     margin-top: 80px;
+
 }
