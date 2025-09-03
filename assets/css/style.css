@@ -6,6 +6,9 @@
   - 全体共通のレイアウト
 ----------------------------------------*/
 
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: 'M PLUS Rounded 1c', 'Nunito', sans-serif;
     color: #555555;
@@ -97,4 +100,5 @@ main img:not(.story-section img) {
 .nurikabe-bounce {
     animation: bounce 1s ease-in-out infinite;
 }
+
 
